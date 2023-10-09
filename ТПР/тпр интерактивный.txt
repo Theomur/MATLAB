@@ -1,0 +1,105 @@
+---------------текст----------------
+------------a)
+text1 = 'abc'
+text2 = '123'
+text3 = 'jhbvjebfve'
+--------b)
+text = strcat(text1, text2, text3)
+-----------------числа----------------
+-----------a)
+(b)format short
+a = 120.3456789
+-----------c)
+format long e
+a
+-----------d)
+format short e
+a
+------------------векторы--------------
+-------------a)
+s = [1 2 3]
+---------------b)
+r = [3;3;3]
+-----------c)
+norm(s,1)
+-----------d)
+norm(r,2)
+-----------e)
+norm(r,inf)
+-----------------матрицы----------------
+------a)
+A = [1 2 3; 4 5 6; 7 8 9; 0 9 8; 6 5 4]
+--------b)
+B = rand(100)
+----------d)
+col = B(:,2)
+str = B(3,:)
+v1 = [2 4 6]
+v2 = [3 5 7]
+B(v1, v2)
+------------e)
+d = det(B)
+r = rank(B)
+e = eig(B)
+rho_B = max(abs(e))
+[V, D] = eig(B)
+-------------------------графика-------------------
+-------a)
+x = -2*pi:0.1:2*pi
+--------b)
+y_sin = sin(x)
+--------c)
+y_cos = cos(x)
+--------d)
+y_tan = tan(x)
+-------e)
+plot(x, y_sin)
+title('График синуса')
+xlabel('x')
+ylabel('sin(x)')
+grid on
+----------f)
+plot(x, y_sin, x, y_cos)
+title('Графики синуса и косинуса')
+xlabel('x')
+ylabel('sin(x) и cos(x)')
+legend('sin(x)', 'cos(x)')
+grid on
+-----------g)
+subplot(2, 2, 1)
+plot(x, y_sin)
+title('График синуса')
+xlabel('x')
+ylabel('sin(x)')
+grid on
+
+subplot(2, 2, 2)
+plot(x, y_cos)
+title('График косинуса')
+xlabel('x')
+ylabel('cos(x)')
+grid on
+
+subplot(2, 2, 3)
+a=find(abs(y_tan)<20)
+plot(x(a),y_tan(a))
+title('График тангенса')
+xlabel('x')
+ylabel('tan(x)')
+grid on
+
+subplot(2, 2, 4)
+plot(y_cos, y_sin)
+title('График sin(cos(x))')
+xlabel('cos(x)')
+ylabel('sin(x)')
+grid on
+
+sgtitle('Четыре отдельных графика')
+
+
+
+
+
+
+
