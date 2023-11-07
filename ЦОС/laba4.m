@@ -1,11 +1,14 @@
-rp = 0.1;
-rs = 25;
-ap = [28 62]/100;
-as = [32 58]/100;
-[N1,a0s] = cheb1ord(ap, as, rp, rs);
-[b,a] = cheby1(N1,rp,a0s, 'stop');
-h = freqz(b, a , 100);
-plot(abs(h));
-title('RF with Cheb first ord')
-xlabel('frequenciec')
-ylabel('K(w)')
+fd = 200;
+f0 = 60;
+
+[n1, a0] = ellipord(f0/fd*2, f0/fd*2 - 0.3, 1.5, 20);
+[b, a] = ellip(n1, 1.5, 20, f0/fd*2, "high");
+
+w = freqz(b, a, 100);
+wm_freq = abs(w);
+
+
+plot(wm_freq);
+title('АЧХ');
+xlabel('Частота');
+ylabel('Коэф усиления');
